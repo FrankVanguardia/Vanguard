@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Management</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* White background */
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        header {
+            background-color: White;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+		 position: sticky;
+            top: 0;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ddd;
+        }
+
+        section {
+            margin: 20px;
+            background-color: #ffffff; /* White background */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        h2 {
+            color: #ff0000;
+            padding: 15px;
+            margin: 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .property {
+            background-color: #f4f4f4; /* Light gray background for each property */
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .property img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .property-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .reservation-tab {
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 10px;
+            padding: 10px;
+            text-align: center;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease;
+        }
+
+        .reservation-tab:hover {
+            background-color: #ddd;
+        }
+
+        .agent-profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .agent-profile img {
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .reservation-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .reservation-form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .reservation-form input,
+        .reservation-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .reservation-form button {
+            background-color: #405de6;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+<img class="logo" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/394076160_1078173293599311_3262953835659506824_n.jpg?stp=dst-jpg_p403x403&_nc_cat=104&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHMAQdXnnYot2OT_zHKK9FtwXxn6-_PswjBfGfr78-zCJmz4xdWnsM38-uQT5w1-8fcYheYhngH9pNuFH87NMan&_nc_ohc=NUsmFKDUUEQAX_o_omM&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSFHrtyLm5fTXsf3AiDw0FLCojyAQ7KzbGVz2dZOVl06g&oe=659F8B5E" alt="Logo">
+        <h1>Real Estate Investment</h1>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#properties">Properties</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to our <i>Real Estate Investment</i> , your trusted partner in real estate Investment excellence. We take pride in our commitment to delivering unparalleled services that redefine the standard of property Investment. With a foundation built on expertise, innovation, and a client-centric approach, we strive to maximize the value of your real estate investments. Our team of seasoned professionals brings a wealth of experience in property Investment, ensuring seamless operations, optimal tenant satisfaction, and sustained property value growth. We understand the unique needs of property owners, whether residential or commercial, and tailor our solutions to meet and exceed expectations. We embrace the latest technologies to streamline processes, enhance communication, and provide transparent, data-driven insights. Your success in real estate Investment is our priority, and we look forward to being your partner in achieving and surpassing your property goals. Welcome to a new era of excellence with Our Company.</p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>Our Real estate Investment services encompass a range of professional offerings aimed at assisting property owners in the effective operation, maintenance, and enhancement of their real estate investments. These services can vary depending on the type of property (residential, commercial, industrial) and the specific needs of the property owner, but common services include:</p>
+
+<h1>Tenant Placement and Management:</h1>
+
+<p>Advertising and marketing vacancies.</p>
+<p>Tenant screening and selection.</p>
+<p>Lease negotiation and administration.</p>
+<p>Handling tenant inquiries, complaints, and maintenance requests.</p>
+
+<h1>Property Maintenance and Repairs:</h1>
+
+<p>Regular property inspections.</p>
+<p>Coordination of maintenance and repairs.</p>
+<p>Emergency response and 24/7 support.</p>
+<p>Oversight of contractors and service providers.</p>
+
+<h1>Rent Collection and Financial Management</h1>
+
+<p>Rent collection and enforcement.</p>
+<p>Financial reporting and budgeting.</p>
+<p>Expense management.</p>
+<p>Rent increases and lease renewals.</p>
+
+<h1>Legal Compliance:</h1>
+
+<p>Ensuring compliance with local and state regulations.</p>
+<p>Eviction processes, if necessary.</p>
+<p>Property and liability insurance management.</p>
+
+<h1>Asset Enhancement:</h1>
+
+<p>Strategic planning for property improvements.</p>
+<p>Capital expenditure management.</p>
+<p>Renovation and remodeling oversight.</p>
+
+<h1>Technology Integration:</h1>
+
+<p>Implementing and utilizing property management software.</p>
+<p>Online portals for owners and tenants.</p>
+<p>Digital record-keeping and documentation.</p>
+
+<h1>Market Analysis and Strategy:</h1>
+
+<p>Real estate market research.</p>
+<p>Property valuation and pricing strategy.</p>
+<p>Advising on market trends and potential adjustments.</p>
+
+<h1>Communication and Relationship Management:</h1>
+
+<p>Regular communication with property owners.</p>
+<p>Handling communication with tenants.</p>
+<p>Mediation and conflict resolution.
+
+<h1>Environmental and Sustainability Initiatives:</h1>
+
+<p>Implementing green and sustainable practices.</p>
+<p>Compliance with environmental regulations.</p>
+
+<h1>Vacancy Reduction Strategies:</h1>
+
+<p>Marketing strategies to minimize vacancy periods.</p>
+<p>Developing and implementing tenant retention programs.</p></br>
+
+<h3><i>Real estate management services are designed to provide property owners with peace of mind by efficiently handling the day-to-day responsibilities of property ownership, optimizing property value, and ensuring a positive experience for both owners and tenants.</i></h3>
+
+
+    </section>
+
+    <section id="properties">
+        <h2>Property List</h2>
+
+        <div class="properties-grid">
+
+            <!-- Property 1 -->
+            <div class="property">
+                <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/403626310_1573991970013553_9026851090705659343_n.jpg?stp=dst-jpg_p206x206&_nc_cat=101&ccb=1-7&_nc_sid=510075&_nc_eui2=AeF81DnWQ6FuYR96z-SxlqHUYsrUULHP9wliytRQsc_3CVWPdhkaHkqCZzNQDG0ez4wHm_p6VOhc2-ruODm61-po&_nc_ohc=nH-ILOVDCJsAX8CiVLj&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdS7mqnKyhB_03FnDZapsPJXAAAIqTFAz76tPmTNzwKTDQ&oe=659F7802" alt="Arriane Townhouse" width="120"  height="120">
+                <h3>Arriane - Townhouse</h3>
+                <span class="property-price">Php1,328,000.00</span>
+                 <p><b>Lot area:</b>54 sq.m</p>
+		<p><b>Floor area:</b>45 sq.m</p>
+                <div class="reservation-tab" onclick="openReservationForm('form1')">Reservation Form</div>
+            </div>
+
+            <!-- Property 2 -->
+            <div class="property">
+                <img src="https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.15752-9/393095163_890660549341441_7449457227648522260_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeFDp8dgDUBTxIUA7UlzAD0w4Xh7GevSQx3heHsZ69JDHWSYRnKoxcoOS3RKrpBnfsNxCak0UMLxvPHhTDLxR8EF&_nc_ohc=Uh-0ZlhTrHUAX-1TiiA&_nc_ht=scontent.fmnl4-6.fna&oh=03_AdR6wd1ze_ysTpRfOh-OlBckpgae6XEuZpABeY0DXqX32Q&oe=659F862F" alt="Alyce" width="120"  height="120">
+                <h3>Alyce - Duplex</h3>
+                <span class="property-price">Php1,716,000.00</span>
+                 <p><b>Lot area:</b>65 sq.m</p>
+		<p><b>Floor area:</b>45.93 sq.m</p>
+                <div class="reservation-tab" onclick="openReservationForm('form2')">Reservation Form</div>
+            </div>
+
+            <!-- Property 3 -->
+            <div class="property">
+                <img src="https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.15752-9/403634698_890067479226084_4972482003992206486_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeHFaZlC21Aqnjr5AZe4EcUkz_r6w1JFT2nP-vrDUkVPaYiVWKdw16HnI4uyIyfuyW_mCHQsAYzfod4R7JomaLoL&_nc_ohc=DTFQmB1ieMAAX9dBqyf&_nc_ht=scontent.fmnl4-6.fna&oh=03_AdRYBFKWIq9ovm2p_0vTzsF4EEs_zrPX2HanDURpv2W0Yg&oe=659F63BE" alt="Cozy Cottage" width="120"  height="120">
+                <h3>Maris - Duplex</h3>
+                <span class="property-price">Php1,605,000.00</span>
+                <p><b>Lot area:</b>65 sq.m</p>
+		<p><b>Floor area:</b>45.93 sq.m</p>
+                <div class="reservation-tab" onclick="openReservationForm('form3')">Reservation Form</div>
+            </div>
+
+            <!-- Property 4 -->
+            <div class="property">
+                <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/385526618_226483680471206_380897400972803713_n.jpg?stp=dst-jpg_p403x403&_nc_cat=106&ccb=1-7&_nc_sid=510075&_nc_eui2=AeFNTZ7go9QvBppExEJckdkTG17vAm_6QV4bXu8Cb_pBXq60O2aedkjFUcE3YsmHJXCx3JFQDCmf6ZdZWpRMH2y4&_nc_ohc=uysiPq0H24oAX-b-Qkk&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdR7dKfEpXEZoYWPge89RTkuLSsR0hMkXXi4MQlPJzfcTQ&oe=659FA786" alt="Property3">
+                <h3>Bungalow and 2 Storey Building</h3>
+                <span class="property-price">Php2,806,220.00</span>
+                <p><b>Lot area:</b>396 sq.m</p>
+		<p><b>Floor area:</b>94.25 + 90.05 sq.m</p>
+
+                <div class="reservation-tab" onclick="openReservationForm('form4')">Reservation Form</div>
+            </div>
+
+            
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="agent-profile">
+
+                <img src="https://scontent.fmnl4-4.fna.fbcdn.net/v/t1.6435-9/123269049_3567882659900193_5975550646814110496_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=be3454&_nc_eui2=AeHz0QX2Z-0_k5nAxHDPdWEaiWK-o1vBktKJYr6jW8GS0uZykQIX1kdaN9C9FgqwBt7AESjhdJgcPUt3BsHUG9WB&_nc_ohc=ssl90aXVfBoAX_gCWXs&_nc_ht=scontent.fmnl4-4.fna&oh=00_AfBL9ArDo8r6nw-RnUc_NqqQcs-cn7jHxJlUqWYd7EhHHg&oe=659F8176" alt="Agent Name" width="120"  height="120">
+                <div>
+                    <p>Contact our dedicated agent for personalized assistance:</p>
+                    <p><strong>Frank Guevarra Vanguardia</strong></p>
+                    <p>Email: <a href="mailto:vanguardiafg@sss.gov.ph">vanguardiafg@sss.gov.ph</a></p>
+                    <p>Phone: <a href="tel:09082833731">09082833731</a></p>
+                </div>
+    </section>
+
+   
+    <div class="modal-overlay" onclick="closeReservationForm()"></div>
+    <div class="modal" id="reservation-modal">
+        <div class="reservation-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="button" onclick="submitReservationForm()">Submit Reservation</button>
+        </div>
+    </div>
+
+    <script>
+
+        function openReservationForm(formId) {
+            document.getElementById('reservation-modal').style.display = 'block';
+            document.getElementById('reservation-modal').dataset.formId = formId;
+        }
+
+        function closeReservationForm() {
+            document.getElementById('reservation-modal').style.display = 'none';
+        }
+
+        function submitReservationForm() {
+            const formId = document.getElementById('reservation-modal').dataset.formId;
+            const form = document.getElementById(formId);
+            // Implement your form submission logic here
+            // For demonstration, simply close the modal
+            closeReservationForm();
+        }
+	function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
+
+</body>
+
+</html>
